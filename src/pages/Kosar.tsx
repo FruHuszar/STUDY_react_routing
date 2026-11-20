@@ -1,6 +1,9 @@
 function Kosar(){
     return (
-        <div>Kosár</div>
+        <section>
+        <h2>Kosár</h2>
+        <p>A kosár jelenleg üres.</p>
+        </section>
     )
 }
 
