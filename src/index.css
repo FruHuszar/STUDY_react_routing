@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  }
+
+  /* Alap oldalháttér és tipográfia - meleg, krémes papír hatás */
+  body {
+    @apply bg-[#FAF8F5] text-[#1C1B1A] antialiased selection:bg-[#E6DFD5] selection:text-[#1C1B1A];
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+
+  /* Fejléc és navigáció */
+  header {
+    @apply sticky top-0 z-10 bg-[#FAF8F5]/85 backdrop-blur-md border-b border-[#E8E2D9] pt-8 pb-5 px-6 mb-12;
+  }
+
+  header h1 {
+    font-family: var(--font-serif);
+    @apply text-4xl md:text-5xl font-semibold tracking-tight text-[#1C1B1A] mb-5;
+  }
+
+  header nav {
+    @apply flex flex-wrap items-center justify-center gap-6 md:gap-10;
+  }
+
+  /* NavLink-ek (a React Router <a> tageket renderel belőlük, az aktívra pedig .active classt tesz) */
+  header nav a {
+    @apply relative text-xs uppercase tracking-[0.2em] font-medium text-[#7A746E] hover:text-[#1C1B1A] transition-colors duration-300 py-1;
+  }
+
+  header nav a.active {
+    @apply text-[#1C1B1A] font-semibold;
+  }
+
+  header nav a.active::after {
+    content: "";
+    @apply absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#1C1B1A];
+  }
+
+  /* Fő tartalmi konténer */
+  main {
+    @apply max-w-2xl mx-auto px-6 pb-20;
+  }
+
+  /* Kártya / Magazin szekciók */
+  section {
+    @apply bg-white border border-[#EBE5DC] rounded-2xl p-8 md:p-12 shadow-[0_12px_40px_-15px_rgba(28,27,26,0.06)] transition-all duration-300;
+  }
+
+  /* Alcímek */
+  h2 {
+    font-family: var(--font-serif);
+    @apply text-3xl md:text-4xl font-medium text-[#1C1B1A] tracking-tight mb-4 pb-4 border-b border-[#F2EDE6];
+  }
+
+  /* Bekezdések */
+  p {
+    @apply text-[#5C5752] text-base leading-relaxed mb-6;
+  }
+
+  /* Tartalmi linkek (pl. Public és AdottTermek komponensekben) */
+  main a {
+    @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] font-semibold text-[#1C1B1A] border-b border-[#1C1B1A] pb-1 mt-2 hover:text-[#8C6D53] hover:border-[#8C6D53] transition-colors duration-300;
+  }
+
+  /* Űrlap elemek (UjTermek komponens) */
+  form {
+    @apply flex flex-col gap-5 mt-6;
+  }
+
+  label {
+    @apply text-xs uppercase tracking-[0.18em] font-semibold text-[#6E6862] -mb-3;
+  }
+
+  input {
+    @apply w-full bg-[#FAF8F5] border border-[#DFD8CE] rounded-xl px-4 py-3.5 text-[#1C1B1A] text-sm placeholder:text-[#A39D96] focus:outline-none focus:bg-white focus:border-[#1C1B1A] focus:ring-1 focus:ring-[#1C1B1A] transition-all duration-200;
+  }
+
+  /* Gombok */
+  button {
+    @apply mt-2 self-start bg-[#1C1B1A] text-[#FAF8F5] text-xs uppercase tracking-[0.2em] font-medium px-8 py-4 rounded-xl hover:bg-[#383532] active:scale-[0.99] transition-all duration-200 cursor-pointer shadow-sm;
+  }
+}
